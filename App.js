@@ -1,20 +1,44 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import WelcomeScreen from './screens/WelcomeScreen';
+import SettingsScreen from './screens/SettingsScreen';
+import { Feather } from '@expo/vector-icons';
+import StatsScreen from './screens/StatsScreen';
+import CardsScreen from './screens/CardsScreen';
+import { AntDesign } from '@expo/vector-icons';
 
-export default function App() {
+const Tab = createBottomTabNavigator();
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    <NavigationContainer>
+        <Tab.Navigator screenOptions={{ headerShown: false}}>
+            <Tab.Screen name="Welcome" component={WelcomeScreen} 
+              options={{
+                tabBarIcon: () => <Image source={require("./assets/home.png")}/>
 
+            }}/>
+            <Tab.Screen name="Cards" component={CardsScreen}
+              options={{
+              tabBarIcon: () => <Image source={require("./assets/myCards.png")}/>
+              }}/>
+            <Tab.Screen name="Statistics" component={StatsScreen} 
+              options={{
+              tabBarIcon: () => <Image source={require("./assets/statistics.png")}/>
+              }}/>
+            
+            <Tab.Screen name="Settings" component={SettingsScreen}
+            options={{
+              tabBarIcon: () => <Image source={require("./assets/settings.png")}/>
+              }}/>
+            
+             
+        </Tab.Navigator>
+    </NavigationContainer>
+  )
+}
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  
 });
+export default App
