@@ -12,9 +12,11 @@ const WelcomeScreen = () => {
         <View style={styles.imageAndText}>
           <Image source={require("../assets/profile.png")} style={styles.profilePic}/>
             <View style={styles.bothTexts}>
+            {/** Welcome Text */}
                 <Text style={{color:colors.lightgrey, fontSize:25, fontWeight:"600"}}>Welcome Back,</Text>
                 <View style={styles.textAndIcon}>
                     <Text style={{fontSize:30, fontWeight:"700"}}>Eric Atsu</Text>
+                    {/** Search Icon */}
                     <TouchableOpacity>
                       <FontAwesome name="search" size={30} color="black" style={styles.searchIcon}/>
                     </TouchableOpacity>
@@ -26,6 +28,7 @@ const WelcomeScreen = () => {
         <View style={styles.cardContainer}>
           <Image source={require("../assets/Card.png")} />
         </View>
+        {/** Money Transfer Options */}
         <View>
             <FlatList
               data={arrowData}
@@ -61,6 +64,7 @@ const WelcomeScreen = () => {
           <Text style={{fontSize:28, fontWeight:"700"}}>Transaction</Text>
           <Text style={{color:colors.blue, fontWeight:"600", fontSize:20}}>See All</Text>
       </View>
+      {/** Transaction Options */}
       <View>
         <FlatList
           data={transactionsData}
