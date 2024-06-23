@@ -66,40 +66,36 @@ const WelcomeScreen = () => {
           data={transactionsData}
           renderItem={({item}) => (
             <View style={styles.transactionContainer}>
-                <View style={{flexDirection:"row", justifyContent:"space-between"}}>
-                  <Image source={item.icon} style={styles.transactionIcon}/>
-                  <View>
-                    <Text>{item.title}</Text>
-                    <Text>{item.subTitle}</Text>
-                    <Text>{item.amount}</Text>
+                <View style={{flexDirection:"row"}}>
+                      <TouchableOpacity>
+                          <View style={styles.transactionIconContainer}>
+                            <Image source={item.icon} style={styles.transactionIcon}/>
+                          </View>
+                      </TouchableOpacity>
+                    <View>
+                        <View style={{marginTop:10}}>
+                          <Text style={{fontWeight:"800", fontSize:20}}>{item.title}</Text>
+                        </View>
+                      <View style={{flexDirection:"row"}}>
+                        <Text style={{fontWeight:"400", fontSize:15, color:colors.lightgrey}}>{item.subTitle}</Text>
+                          <View>
+                            <Text style={item.style}>{item.amount}</Text>
+                          </View>
+                      </View>
+                      </View>
                   </View>
                 </View>
-
-
-
-
-
-            </View>
-
-         
-          
           )}
         />
       </View>
-
       </View>
-      
       </View>
     )
-  }
-  const styles = StyleSheet.create({
+    }
+    const styles = StyleSheet.create({
     wholeScreen:{
       flex:1,
       backgroundColor:"#fff"
-         
-          
-          
-          
     },
     headerContainer:{
       flex:1,
@@ -134,34 +130,57 @@ const WelcomeScreen = () => {
    bothImageAndTitleContainer:{
     justifyContent:"center",
     margin:12,
-    
-    
-    
-    
-   }, 
-   imagesContainer:{
+    }, 
+    imagesContainer:{
     alignSelf:"center",
     backgroundColor: colors.lightgrey,
     padding:25, 
     borderRadius:50
-   },
-   titleTextContainer:{
+    },
+    titleTextContainer:{
     alignItems:"center",
     justifyContent:"center",
     margin:12
-   },
-   titleText:{
-    fontSize:20,
-    fontWeight:"600"
-   },
-   transactionIcon:{
-    height:35,
-    width:45,
-   }
-
-    
+    },
+    titleText:{
+      fontSize:20,
+      fontWeight:"600"
+     },
+     transactionIconContainer:{
+      backgroundColor: colors.lightgrey,
+      padding:20,
+      margin:10,
+      borderRadius:50
+    }
   });
   export default WelcomeScreen
+      
+      
+                
+                      
+                      
+                    
+
+
+
+
+
+            
+
+         
+          
+    
+         
+          
+          
+          
+    
+    
+    
+    
+    
+
+    
       
       
           

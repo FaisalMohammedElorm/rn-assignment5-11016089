@@ -1,3 +1,4 @@
+import colors from "../config/colors.jsx"
 export const transactionsData = [
   {
     id:0,
@@ -5,26 +6,30 @@ export const transactionsData = [
     title:"Apple Store",
     subTitle:"Entertainment",
     amount:"-$5,99",
+    style: {color: colors.black, fontSize:15, fontWeight:"600", marginLeft:165}
   },
   {
     id:1,
     icon: require("../assets/spotify.png"),
-    title:"Apple Store",
-    subTitle:"Entertainment",
-    amount:"-$5,99",
+    title:"Spotify",
+    subTitle:"Music",
+    amount:"-$12,99",
+    style: {color: colors.black, fontSize:15, fontWeight:"600", marginLeft:215}
   },
   {
     id:2,
     icon: require("../assets/moneyTransfer.png"),
-    title:"Apple Store",
-    subTitle:"Entertainment",
-    amount:"-$5,99",
+    title:"Money Transfer",
+    subTitle:"Transaction",
+    amount:"$300",
+    style: {color: colors.blue, fontSize:15, fontWeight:"600", marginLeft:185}
   },
   {
     id:3,
     icon: require("../assets/grocery.png"),
-    title:"Apple Store",
-    subTitle:"Entertainment",
-    amount:"-$5,99",
+    title:"Grocery",
+    subTitle:"Shopping",
+    amount:"-$88",
+    style: {color: colors.black, fontSize:15, fontWeight:"600", marginLeft:200}
   },
 ]
