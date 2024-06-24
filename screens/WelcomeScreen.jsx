@@ -1,11 +1,12 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity , FlatList} from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
 import colors from "../config/colors";
 import { FontAwesome } from '@expo/vector-icons';
 import { arrowData } from '../mock/arrowData';
 import { transactionsData } from '../mock/transactionsData';
 
 const WelcomeScreen = () => {
+  
   return (
     <View style={styles.wholeScreen}>
       <View style={styles.headerContainer}>
@@ -13,7 +14,7 @@ const WelcomeScreen = () => {
           <Image source={require("../assets/profile.png")} style={styles.profilePic}/>
             <View style={styles.bothTexts}>
             {/** Welcome Text */}
-                <Text style={{color:colors.lightgrey, fontSize:25, fontWeight:"600"}}>Welcome Back,</Text>
+                <Text style={{color:colors.lightgrey, fontSize:25, fontWeight:"600", color: colors.lightgrey }}>Welcome Back,</Text>
                 <View style={styles.textAndIcon}>
                     <Text style={{fontSize:30, fontWeight:"700"}}>Eric Atsu</Text>
                     {/** Search Icon */}
