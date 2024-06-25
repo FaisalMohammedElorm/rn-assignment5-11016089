@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity, Switch } from 'reac
 import { Entypo } from '@expo/vector-icons';
 import { setData } from '../mock/setData';
 import { ThemeContext } from '../config/themeContext';
+import colors from '../config/colors';
 
 const SettingsScreen = () => {
   const { theme, toggleTheme, themeStyles } = useContext(ThemeContext);
@@ -54,6 +55,7 @@ const styles = StyleSheet.create({
   listContainer: {
     padding: 20,
     borderBottomWidth: 1,
+    borderBottomColor:colors.lightgrey,
     width: '90%',
     alignSelf: 'center',
   },
