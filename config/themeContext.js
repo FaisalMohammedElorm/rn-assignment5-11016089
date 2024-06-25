@@ -1,20 +1,46 @@
-import React, { createContext, useState , useContext} from 'react';
-import { lightTheme, darkTheme } from '../theme';
+import React, { createContext, useState } from 'react';
+import { DarkTheme as NavigationDarkTheme, DefaultTheme as NavigationDefaultTheme } from '@react-navigation/native';
 
-export const ThemeContext = createContext();
+const ThemeContext = createContext();
 
-export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light');
+const CustomDarkTheme = {
+  ...NavigationDarkTheme,
+  colors: {
+    ...NavigationDarkTheme.colors,
+    background: '#000000',
+    card: '#222f59',
+    text: '#ffffff',
+    border: '#555555',
+    primary: '#1E90FF',
+  },
+};
+
+const CustomLightTheme = {
+  ...NavigationDefaultTheme,
+  colors: {
+    ...NavigationDefaultTheme.colors,
+    background: '#ffffff',
+    card: '#f8f8f8',
+    text: '#000000',
+    border: '#cccccc',
+    primary: '#1E90FF',
+  },
+};
+
+const ThemeProvider = ({ children }) => {
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  const theme = isDarkTheme ? CustomDarkTheme : CustomLightTheme;
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+    setIsDarkTheme(!isDarkTheme);
   };
 
-  const themeStyles = theme === 'light' ? lightTheme : darkTheme;
-
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, themeStyles }}>
+    <ThemeContext.Provider value={{ isDarkTheme, theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
 };
+
+export { ThemeContext, ThemeProvider };

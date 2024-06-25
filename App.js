@@ -1,64 +1,71 @@
-import React, { createContext, useState, useContext } from 'react';
-import { View, Button, Image, StyleSheet, useColorScheme } from 'react-native';
+import React, { useContext } from 'react';
+import { Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import WelcomeScreen from './screens/WelcomeScreen';
-import SettingsScreen from './screens/SettingsScreen';
-import StatsScreen from './screens/StatsScreen';
-import CardsScreen from './screens/CardsScreen';
+import CardsScreen from "./screens/CardsScreen"
+import StatsScreen from "./screens/StatsScreen"
 import { ThemeProvider, ThemeContext } from './config/themeContext';
-
-import colors from './config/colors';
-
+import WelcomeScreen from "./screens/WelcomeScreen"
+import SettingsScreen from "./screens/SettingsScreen"
 const Tab = createBottomTabNavigator();
 
-const App = () => {
-  
+const AppNavigator = () => {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <ThemeProvider>
-       <NavigationContainer>
-        <Tab.Navigator 
-        
-          screenOptions={{ 
-            headerShown: false,
-            
-          }}>
-          <Tab.Screen
-            name="Welcome"
-            component={WelcomeScreen}
-            options={{
-              tabBarIcon: () => <Image source={require("./assets/home.png")} style={styles.icon} />,
-            }}
-          />
-          <Tab.Screen
-            name="Cards"
-            component={CardsScreen}
-            options={{
-              tabBarIcon: () => <Image source={require("./assets/myCards.png")} style={styles.icon} />,
-            }}
-          />
-          <Tab.Screen
-            name="Statistics"
-            component={StatsScreen}
-            options={{
-              tabBarIcon: () => <Image source={require("./assets/statistics.png")} style={styles.icon} />,
-            }}
-          />
-          <Tab.Screen
-            name="Settings"
-            component={SettingsScreen}
-            options={{
-              tabBarIcon: () => <Image source={require("./assets/settings.png")} style={styles.icon} />,
-            }}
-          />
-        </Tab.Navigator>
-      </NavigationContainer>
-    </ThemeProvider>
+    <NavigationContainer theme={theme}>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ color, size }) => {
+            let iconSource;
+            if (route.name === 'Home') {
+              iconSource = require('./assets/home.png');
+            } else if (route.name === 'My Cards') {
+              iconSource = require('./assets/myCards.png');
+            } else if (route.name === 'Statistics') {
+              iconSource = require('./assets/statistics.png');
+            } else if (route.name === 'Settings') {
+              iconSource = require('./assets/settings.png');
+            }
+
+            return <Image source={iconSource} style={{ width: size, height: size, tintColor: color }} />;
+          },
+          tabBarStyle: {
+            backgroundColor: theme.colors.card,
+          },
+          tabBarActiveTintColor: theme.colors.primary,
+          tabBarInactiveTintColor: theme.colors.border,
+        })}
+      >
+        <Tab.Screen 
+          name="Home" 
+          component={WelcomeScreen} 
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen 
+          name="My Cards" 
+          component={CardsScreen} 
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen 
+          name="Statistics" 
+          component={StatsScreen} 
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen 
+          name="Settings" 
+          component={SettingsScreen} 
+          options={{ headerShown: false }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 };
 
-const styles = StyleSheet.create({
-  
-});
-
-export default App;
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppNavigator />
+    </ThemeProvider>
+  );
+}

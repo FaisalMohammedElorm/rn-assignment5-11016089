@@ -1,13 +1,23 @@
 export const lightTheme = {
-  backgroundColor: '#fff',
-  color: '#000',
-  lightgrey: '#ccc',
-  blue: '#00f'
+  dark: false,
+  colors: {
+    primary: '#ffffff',
+    background: '#ffffff',
+    card: '#ffffff',
+    text: '#000000',
+    border: '#dddddd',
+    notification: '#ffffff',
+  },
 };
 
 export const darkTheme = {
-  backgroundColor: '#000',
-  color: '#fff',
-  lightgrey: '#555',
-  blue: '#00f'
+  dark: true,
+  colors: {
+    primary: '#000000',
+    background: '#02050f',
+    card: '#0B0B29',
+    text: '#ffffff',
+    border: '#333333',
+    notification: '#ffffff',
+  },
 };

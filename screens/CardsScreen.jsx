@@ -3,12 +3,12 @@ import { View, Text, StyleSheet } from 'react-native';
 import { ThemeContext } from '../config/themeContext';
 
 const CardsScreen = () => {
-  const { themeStyles } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <View style={[styles.container, { backgroundColor: themeStyles.backgroundColor }]}>
+    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
     {/** Card Text */}
-      <Text style={[styles.text, { color: themeStyles.color }]}>Cards Screen</Text>
+    <Text style={[styles.text, { color: theme.colors.text }]}>Cards Screen</Text>
     </View>
   );
 };

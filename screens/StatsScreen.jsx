@@ -3,12 +3,12 @@ import { View, Text, StyleSheet } from 'react-native';
 import { ThemeContext } from '../config/themeContext';
 
 const StatsScreen = () => {
-  const { themeStyles } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <View style={[styles.container, { backgroundColor: themeStyles.backgroundColor }]}>
+    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
     {/** Statistics Text */}
-      <Text style={[styles.text, { color: themeStyles.color }]}>Statistics</Text>
+      <Text style={[styles.text, { color: theme.colors.text }]}>Statistics</Text>
     </View>
   );
 };

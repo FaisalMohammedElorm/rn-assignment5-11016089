@@ -6,13 +6,13 @@ import { ThemeContext } from '../config/themeContext';
 import colors from '../config/colors';
 
 const SettingsScreen = () => {
-  const { theme, toggleTheme, themeStyles } = useContext(ThemeContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <View style={[styles.container, { backgroundColor: themeStyles.backgroundColor }]}>
+    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
       <View style={styles.headerContainer}>
       {/** Header Text = SETTINGS */}
-        <Text style={[styles.headerText, { color: themeStyles.color }]}>Settings</Text>
+      <Text style={[styles.headerText, { color: theme.colors.text }]}>Settings</Text>
       </View>
       <View style={{ marginTop: 50 }}>
       {/** Settings Options */}
@@ -21,7 +21,7 @@ const SettingsScreen = () => {
           renderItem={({ item }) => (
             <View style={styles.listContainer}>
               <View style={styles.titleAndIcon}>
-                <Text style={[styles.titleText, { color: themeStyles.color }]}>{item.title}</Text>
+              <Text style={[styles.titleText, { color: theme.colors.text }]}>{item.title}</Text>
                 <TouchableOpacity>
                   <Text>{item.icon}</Text>
                 </TouchableOpacity>
@@ -31,9 +31,9 @@ const SettingsScreen = () => {
         />
       </View>
       <View style={styles.themeTextContainer}>
-        <Text style={[styles.themeText, { color: themeStyles.color }]}>Theme</Text>
+        <Text style={[styles.themeText, { color: theme.colors.text }]}>Theme</Text>
         {/** The toggle switch for changing themes */}
-        <Switch value={theme === 'dark'} onValueChange={toggleTheme} />
+        <Switch value={theme.dark} onValueChange={toggleTheme} />
       </View>
     </View>
   );
