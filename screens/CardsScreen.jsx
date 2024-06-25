@@ -1,26 +1,27 @@
-import { View, Text , StyleSheet} from 'react-native'
-import React, { useContext } from 'react'
-import colors from '../config/colors';
+import React, { useContext } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { ThemeContext } from '../config/themeContext';
 
 const CardsScreen = () => {
-  
+  const { themeStyles } = useContext(ThemeContext);
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.titleText}>CardsScreen</Text>
+    <View style={[styles.container, { backgroundColor: themeStyles.backgroundColor }]}>
+      <Text style={[styles.text, { color: themeStyles.color }]}>Cards Screen</Text>
     </View>
-  )
-}
+  );
+};
+
 const styles = StyleSheet.create({
   container: {
-    flex:1,
-    alignItems:"center",
-    justifyContent:"center",
-    backgroundColor:colors.white,
-
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  titleText:{
-    fontSize:30,
-    fontWeight:"600"
-  }
+  text: {
+    fontSize: 40,
+    fontWeight:"500"
+  },
 });
-export default CardsScreen
+
+export default CardsScreen;
