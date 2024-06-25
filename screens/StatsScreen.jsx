@@ -7,6 +7,7 @@ const StatsScreen = () => {
 
   return (
     <View style={[styles.container, { backgroundColor: themeStyles.backgroundColor }]}>
+    {/** Statistics Text */}
       <Text style={[styles.text, { color: themeStyles.color }]}>Statistics</Text>
     </View>
   );

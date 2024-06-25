@@ -15,19 +15,24 @@ const WelcomeScreen = () => {
         <View style={styles.imageAndText}>
           <Image source={require("../assets/profile.png")} style={styles.profilePic} />
           <View style={styles.bothTexts}>
+          {/** Welcome Text */}
             <Text style={{ color: themeStyles.color, fontSize: 25, fontWeight: "600" }}>Welcome Back,</Text>
             <View style={styles.textAndIcon}>
+            {/** Name of the user */}
               <Text style={{ color: themeStyles.color, fontSize: 30, fontWeight: "700" }}>Eric Atsu</Text>
+              {/** The Search Icon */}
               <TouchableOpacity>
                 <FontAwesome name="search" size={30} color={themeStyles.color} style={styles.searchIcon} />
               </TouchableOpacity>
             </View>
           </View>
         </View>
+        {/** The MasterCard Image */}
         <View style={styles.cardContainer}>
           <Image source={require("../assets/Card.png")} />
         </View>
         <View>
+        {/** Payment Options and Process */}
           <FlatList
             data={arrowData}
             renderItem={({ item }) => (
@@ -50,10 +55,12 @@ const WelcomeScreen = () => {
           />
         </View>
         <View style={{ flexDirection: "row", justifyContent: "space-between", margin: 5 }}>
+        {/** Transaction Text */}
           <Text style={{ color: themeStyles.color, fontSize: 25, fontWeight: "700" }}>Transaction</Text>
           <Text style={{ color: colors.blue, fontWeight: "600", fontSize: 15 }}>See All</Text>
         </View>
         <View>
+        {/** Transaction Options and Processes */}
           <FlatList
             data={transactionsData}
             renderItem={({ item }) => (

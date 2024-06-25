@@ -7,6 +7,7 @@ const CardsScreen = () => {
 
   return (
     <View style={[styles.container, { backgroundColor: themeStyles.backgroundColor }]}>
+    {/** Card Text */}
       <Text style={[styles.text, { color: themeStyles.color }]}>Cards Screen</Text>
     </View>
   );

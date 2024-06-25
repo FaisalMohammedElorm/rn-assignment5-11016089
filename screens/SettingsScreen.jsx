@@ -10,9 +10,11 @@ const SettingsScreen = () => {
   return (
     <View style={[styles.container, { backgroundColor: themeStyles.backgroundColor }]}>
       <View style={styles.headerContainer}>
+      {/** Header Text = SETTINGS */}
         <Text style={[styles.headerText, { color: themeStyles.color }]}>Settings</Text>
       </View>
       <View style={{ marginTop: 50 }}>
+      {/** Settings Options */}
         <FlatList
           data={setData}
           renderItem={({ item }) => (
@@ -29,6 +31,7 @@ const SettingsScreen = () => {
       </View>
       <View style={styles.themeTextContainer}>
         <Text style={[styles.themeText, { color: themeStyles.color }]}>Theme</Text>
+        {/** The toggle switch for changing themes */}
         <Switch value={theme === 'dark'} onValueChange={toggleTheme} />
       </View>
     </View>

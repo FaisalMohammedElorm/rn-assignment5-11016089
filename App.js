@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Button, Image, StyleSheet } from 'react-native';
+import React, { createContext, useState, useContext } from 'react';
+import { View, Button, Image, StyleSheet, useColorScheme } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import WelcomeScreen from './screens/WelcomeScreen';
@@ -8,13 +8,21 @@ import StatsScreen from './screens/StatsScreen';
 import CardsScreen from './screens/CardsScreen';
 import { ThemeProvider, ThemeContext } from './config/themeContext';
 
+import colors from './config/colors';
+
 const Tab = createBottomTabNavigator();
 
 const App = () => {
+  
   return (
     <ThemeProvider>
-      <NavigationContainer>
-        <Tab.Navigator screenOptions={{ headerShown: false }}>
+       <NavigationContainer>
+        <Tab.Navigator 
+        
+          screenOptions={{ 
+            headerShown: false,
+            
+          }}>
           <Tab.Screen
             name="Welcome"
             component={WelcomeScreen}
